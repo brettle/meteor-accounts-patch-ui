@@ -49,7 +49,7 @@ Package.onUse(function(api) {
   // We monkey patch the _helpers and _eventMaps Template properties blaze
   // manages.
   api.use('blaze@=2.1.5 || =2.1.4 || =2.1.3 || =2.1.2 || =2.1.1 || =2.1.0' +
-    ' || =2.1.6 || =2.1.7 || =2.1.8',
+    ' || =2.1.6 || =2.1.7 || =2.1.8 || =2.1.9',
     'client');
   // Among other things, we assume that the hooks in the options object are used
   // directly, not copied.
