@@ -2,7 +2,7 @@
 
 Package.describe({
   name: 'brettle:accounts-patch-ui',
-  version: '0.1.13',
+  version: '0.1.14',
   // Brief, one-line summary of the package.
   summary: 'Monkey patches accounts UI packages to support logged in users ' +
     'who have not signed up.',
@@ -20,7 +20,7 @@ Package.onUse(function(api) {
   api.use('templating', 'client');
   api.use('tracker', 'client');
   api.use('accounts-ui-unstyled', 'client', { weak: true });
-  api.use('ian:accounts-ui-bootstrap-3@1.0.0 || 0.1.0', 'client', 
+  api.use('ian:accounts-ui-bootstrap-3@1.0.0 || 0.1.0', 'client',
     { weak: true });
 
   // Allows other packages/apps to help determine whether a user has signed up.
@@ -48,17 +48,15 @@ Package.onUse(function(api) {
 
   // We monkey patch the _helpers and _eventMaps Template properties blaze
   // manages.
-  api.use('blaze@=2.1.5 || =2.1.4 || =2.1.3 || =2.1.2 || =2.1.1 || =2.1.0' +
-    ' || =2.1.6 || =2.1.7 || =2.1.8',
-    'client');
+  api.use('blaze@2.1.0', 'client');
   // Among other things, we assume that the hooks in the options object are used
   // directly, not copied.
-  api.use('iron:router@=1.0.13 || 1.0.12 || =1.0.11 || =1.0.10 || =1.0.9', 
+  api.use('iron:router@=1.0.13 || 1.0.12 || =1.0.11 || =1.0.10 || =1.0.9',
     'client', { weak: true });
   // Among other things, we use the internal _routesMap and _action properties.
   // Also need the stop() function passed to triggers which was added in 2.5.0.
   api.use('kadira:flow-router' +
-    '@=2.12.1 || =2.10.1 || =2.9.0 || =2.8.0 || =2.7.0 || =2.6.2 || =2.5.0', 
+    '@=2.12.1 || =2.10.1 || =2.9.0 || =2.8.0 || =2.7.0 || =2.6.2 || =2.5.0',
     'client', { weak: true });
 
   // We don't rely on the internals of these packages, but we do rely on
@@ -88,7 +86,7 @@ Package.onTest(function(api) {
 
   // Test the useraccounts routing package identified by the UI environment var
   var ui = process.env.UI;
-  
+
   // Set versions to test against below.
   var blazeVersion = '2.1.8';
   var useraccountsVersion = '1.14.2';
